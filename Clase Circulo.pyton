@@ -1,0 +1,10 @@
+class Circulo:
+    def __init__(self, centro, radio):
+        self.centro = centro
+        self.radio = radio
+
+    def ostentacion(self):
+        return f"Círculo con centro en {self.centro.x}, {self.centro.y} y radio {self.radio}"
+
+    def dibujar_circulo(self):
+        print(self.ostentacion())
