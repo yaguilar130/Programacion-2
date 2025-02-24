@@ -1,0 +1,39 @@
+import pygame
+import sys
+
+class Punto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+class Circulo:
+    def __init__(self, centro, radio):
+        self.centro = centro
+        self.radio = radio
+
+    def dibujar(self, screen):
+        pygame.draw.circle(screen, (255, 0, 0), (self.centro.x, self.centro.y), self.radio, 2)
+
+def main():
+    pygame.init()
+    screen = pygame.display.set_mode((400, 300))
+    pygame.display.set_caption("Gráfico con Pygame")
+
+    # Crear centro y radio del círculo
+    centro = Punto(200, 150)
+    circulo = Circulo(centro, 50)
+
+    # Bucle principal
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        screen.fill((255, 255, 255))  # Fondo blanco
+        circulo.dibujar(screen)
+
+        pygame.display.flip()
+
+if __name__ == "__main__":
+    main()
