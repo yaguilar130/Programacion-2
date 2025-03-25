@@ -1,15 +1,22 @@
 class Punto:
-    def __init__(self, x, y):
+    def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
 
-class Linea:
-    def __init__(self, p1, p2):
-        self.p1 = p1
-        self.p2 = p2
+    def coord_cartesianas(self):
+        return (self.x, self.y)
 
-    def trazar(self):
-        return f"Línea desde {self.p1.x}, {self.p1.y} hasta {self.p2.x}, {self.p2.y}"
+    def coord_polares(self):
+        import math
+        r = math.sqrt(self.x**2 + self.y**2)
+        theta = math.atan2(self.y, self.x)
+        return (r, theta)
 
-    def dibujar_linea(self):
-        print(self.trazar())
+    def __str__(self):
+        return f"Punto({self.x}, {self.y})"
+
+if __name__ == "__main__":
+    p = Punto(3, 4)
+    print("Coordenadas Cartesianas:", p.coord_cartesianas())
+    print("Coordenadas Polares:", p.coord_polares())
+    print("Representación String:", p)
